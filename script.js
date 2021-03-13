@@ -34,10 +34,11 @@ function showQuestion(question) {
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
         const button = document.createElement('button')
+        button.setAttribute('id', 'btn')
         button.innerText = answer.text
 
-        button.classList.add('btn', 'btn-outline-primary', 'btn-lg', 'btn-block')
-        if (answer.corrent) {
+        button.classList.add('btn', 'btn-primary', 'btn-lg', 'btn-block')
+        if (answer.correct) {
             button.dataset.correct = answer.correct
         }
         button.addEventListener('click', selectAnswer)
@@ -55,7 +56,6 @@ function clearQuestionContainer() {
 
 function selectAnswer(e) {
     const selectedButton = e.target
-    debugger
     const correct = selectedButton.dataset.correct
     console.log()
     Array.from(answerButtonsElement.children).forEach(button => {
@@ -80,10 +80,12 @@ function setStatusClass(element, correct) {
     } else {
         //wrong color
         element.classList.add('btn', 'btn-danger', 'btn-lg', 'btn-block')
-        console.log('Adding wrong class')
-        console.log(correct)
         //subtract from score and 10 sec on timer
+
     }
+    document.querySelectorAll('#btn').forEach(button => {
+        button.disabled = true
+    });
 }
 
 function clearStatusClass(element) {
