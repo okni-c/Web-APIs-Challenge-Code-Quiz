@@ -6,39 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Quiz App</title>
 </head>
 
 <header>
     <nav class="navbar navbar-dark bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Javascript Quiz!</a>
-          </button>
+            <h1 class="navbar-brand">Javascript Quiz!</h1>
+            </button>
             <span class="navbar-text">
-              Timer
+                Timer: 0
             </span>
-          </div>
         </div>
-      </nav>
+        </div>
+    </nav>
 </header>
 
 <body>
+
     <div class="container" style="margin-top: 5%;">
         <div class="row justify-content-center">
-            <!-- fix responisive centering of card with page size -->
-            <div class="col-4">
+
+            <div id="start-card" class="col-4">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Question 1</h5>
-                        <p class="card-text">How cool are dogs?</p>
-                        <button type="button" class="btn btn-outline-primary btn-lg btn-block">Answer 1</button>
-                        <button type="button" class="btn btn-outline-secondary btn-lg btn-block">Answer 2</button>
-                        <button type="button" class="btn btn-outline-success btn-lg btn-block">Answer 3</button>
-                        <button type="button" class="btn btn-outline-danger btn-lg btn-block">Answer 4</button>
+                        <h5 class="card-title">Welcome to the Javascript Quiz!</h5>
+                        <p class="card-text">Try to answer the following code-related questions within the time limit.
+                            Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+                        <button id="start-btn" type="button" class="btn btn-outline-primary btn-lg btn-block">Start
+                            Quiz</button>
+                        <button id="next-btn" type="button" class="btn btn-outline-primary btn-lg btn-block hide">Next</button>
                     </div>
                 </div>
             </div>
+            <div id="question-card" class="col-4 hide">
+                <div class="card text-center" style="width: 24rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Question 1</h5>
+                        <p id="question" class="card-text">How cool are dogs?</p>
+                        <div id="answer-buttons">
+                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                            1</button>
+                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                            2</button>
+                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                            3</button>
+                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer 4</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -49,6 +70,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
