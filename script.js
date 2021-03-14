@@ -8,6 +8,8 @@ const questionElement = document.getElementById('question')
 
 const answerButtonsElement = document.getElementById('answer-buttons')
 
+const timerElement = document.getElementById('timer')
+
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
@@ -22,7 +24,23 @@ function startGame() {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
+    runTimer()
     setNextQuestion()
+}
+
+function runTimer() {
+    var timeLeft = 75;
+    timerElement.innerText = timeLeft
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 0) {
+            timeLeft--
+            timerElement.innerText = timeLeft
+        } else {
+            clearInterval(timeInterval)
+            timerElement.innerText = 0
+            showScoreCard()
+        }
+    }, 100)
 }
 
 function setNextQuestion() {
@@ -59,16 +77,16 @@ function selectAnswer(e) {
     const correct = selectedButton.dataset.correct
     console.log()
     Array.from(answerButtonsElement.children).forEach(button => {
-      setStatusClass(selectedButton, selectedButton.dataset.correct)
+        setStatusClass(selectedButton, selectedButton.dataset.correct)
     })
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
-      nextButton.classList.remove('hide')
+        nextButton.classList.remove('hide')
     } else {
-    // SHOW SCORE HERE
-      startButton.innerText = 'Restart'
-      startButton.classList.remove('hide')
+        // SHOW SCORE CARD HERE
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
     }
-  }
+}
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
@@ -96,6 +114,10 @@ function clearStatusClass(element) {
 }
 
 function setScore() {
+
+}
+
+function showScoreCard() {
 
 }
 
