@@ -13,7 +13,6 @@
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="">Javascript Quiz!</a>
-
         <div class="form-inline justify-content-center" id="navbarNav">
             <span class="nav-item form-control mr-sm-2">
                 Timer: <span id="timer">75</span>
@@ -24,10 +23,8 @@
 
 <body>
 
-    <div class="container" style="margin-top: 5%;">
-        <div class="row justify-content-center">
-
-            <div id="start-card" class="col-4">
+    <div class="card-group justify-content-center" style="margin-top: 5%;">
+            <div id="start-card" class="">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
                         <h5 class="card-title">Welcome to the Javascript Quiz!</h5>
@@ -40,7 +37,7 @@
                     </div>
                 </div>
             </div>
-            <div id="question-card" class="col-4 hide">
+            <div id="question-card" class="hide">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
                         <h5 id="question" class="card-title" style="margin-bottom: 20px;">Question 1</h5>
@@ -57,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div id="entry-card" class="col-4 hide">
+            <div id="entry-card" class="hide">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
                         <h5 class="card-title">All done!</h5>
@@ -68,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div id="score" class="col-4 hide">
+            <div id="score" class="hide">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
                         <h5 class="card-title">Score Board</h5>
@@ -77,7 +74,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
