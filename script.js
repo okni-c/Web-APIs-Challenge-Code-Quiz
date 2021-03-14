@@ -10,6 +10,14 @@ const answerButtonsElement = document.getElementById('answer-buttons')
 
 const timerElement = document.getElementById('timer')
 
+const nameEntryElement = document.getElementById('entry-card')
+
+const scoreCardElement = document.getElementById('score')
+
+const startCardElement = document.getElementById('start-card')
+
+let globalScore = 75
+
 let shuffledQuestions, currentQuestionIndex
 
 startButton.addEventListener('click', startGame)
@@ -24,25 +32,36 @@ function startGame() {
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove('hide')
-    runTimer()
     setNextQuestion()
 }
 
-function runTimer() {
-    var timeLeft = 75;
-    timerElement.innerText = timeLeft
-    var timeInterval = setInterval(function () {
-        if (timeLeft > 0) {
-            timeLeft--
-            timerElement.innerText = timeLeft
-        } else {
-            clearInterval(timeInterval)
-            timerElement.innerText = 0
-            // show score card and hide all other containers if time runs out
-            showScoreCard()
-        }
-    }, 1000)
-}
+var globalTimer = setInterval( function() {
+    if (globalScore > 0) {
+        globalScore--
+        timerElement.innerText = globalScore
+    } else {
+        clearInterval(globalTimer)
+        // timerElement.innerText = 0
+        // show score card and hide all other containers if time runs out
+        showScoreCard()
+    }
+}, 1000)
+
+// function runTimer() {
+    
+//     timerElement.innerText = globalScore
+//     var timeInterval = setInterval(function () {
+//         if (globalScore > 0) {
+//             globalScore--
+//             timerElement.innerText = globalScore
+//         } else {
+//             clearInterval(timeInterval)
+//             timerElement.innerText = 0
+//             // show score card and hide all other containers if time runs out
+//             showScoreCard()
+//         }
+//     }, 1000)
+// }
 
 function setNextQuestion() {
     clearQuestionContainer()
@@ -84,8 +103,8 @@ function selectAnswer(e) {
         nextButton.classList.remove('hide')
     } else {
         // SHOW SCORE CARD HERE
-        startButton.innerText = 'Restart'
-        startButton.classList.remove('hide')
+        clearInterval(globalTimer)
+        showScoreCard()
     }
 }
 
@@ -94,17 +113,16 @@ function setStatusClass(element, correct) {
     if (correct) {
         //correct color
         element.classList.add('btn', 'btn-success', 'btn-lg', 'btn-block')
-        //add to score
-        setScore()
     } else {
         //wrong color
         element.classList.add('btn', 'btn-danger', 'btn-lg', 'btn-block')
-        //subtract from score and 10 sec on timer
-
+        //subtract 10 sec from timer
+        globalScore - 10
+        console.log("-10 points")
     }
     document.querySelectorAll('#btn').forEach(button => {
         button.disabled = true
-    });
+    })
 }
 
 function clearStatusClass(element) {
@@ -114,11 +132,21 @@ function clearStatusClass(element) {
     element.classList.remove('btn', 'btn-danger', 'btn-lg', 'btn-block')
 }
 
-function setScore() {
+function showScoreCard() {
+    timerElement.classList.add('hide')
+    startCardElement.classList.add('hide')
+    questionContainerElement.classList.add('hide')
+    nameEntryElement.classList.remove('hide')
 
+    document.getElementById('finalscore').innerText = globalScore
+
+    document.getElementById('name-submit').addEventListener('click', localStorageCard)
+    
 }
 
-function showScoreCard() {
+function localStorageCard() {
+    nameEntryElement.classList.add('hide')
+    scoreCardElement.classList.remove('hide')
 
 }
 

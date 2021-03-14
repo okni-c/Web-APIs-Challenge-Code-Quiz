@@ -11,14 +11,17 @@
 </head>
 
 <header>
-    <nav class="navbar navbar-dark bg-primary">
-        <div class="container-fluid">
-            <h1 class="navbar-brand">Javascript Quiz!</h1>
-            </button>
-            <span class="navbar-text">
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="">Javascript Quiz!</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="score-card">Score Board</a>
+                </li>
+            </ul>
+            <div class="form-inline justify-content-center" id="navbarNav">
+            <span class="nav-item form-control mr-sm-2">
                 Timer: <span id="timer">0</span>
             </span>
-        </div>
         </div>
     </nav>
 </header>
@@ -36,27 +39,48 @@
                             Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
                         <button id="start-btn" type="button" class="btn btn-outline-primary btn-lg btn-block">Start
                             Quiz</button>
-                        <button id="next-btn" type="button" class="btn btn-outline-primary btn-lg btn-block hide">Next</button>
+                        <button id="next-btn" type="button"
+                            class="btn btn-outline-primary btn-lg btn-block hide">Next</button>
                     </div>
                 </div>
             </div>
             <div id="question-card" class="col-4 hide">
                 <div class="card text-center" style="width: 24rem;">
                     <div class="card-body">
-                        <h5 id="question"class="card-title" style="margin-bottom: 20px;">Question 1</h5>
+                        <h5 id="question" class="card-title" style="margin-bottom: 20px;">Question 1</h5>
                         <div id="answer-buttons">
-                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
-                            1</button>
-                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
-                            2</button>
-                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
-                            3</button>
-                        <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer 4</button>
+                            <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                                1</button>
+                            <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                                2</button>
+                            <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                                3</button>
+                            <button id="btn" type="button" class="btn btn-outline-success btn-lg btn-block">Answer
+                                4</button>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div id="entry-card" class="col-4 hide">
+                <div class="card text-center" style="width: 24rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">All done!</h5>
+                        <p class="card-text">Your final score is: <span id="finalscore"></span></p>
+                        <p class="card-text">Please enter your name: </p>
+                        <input placeholder="Name">
+                        <button id="name-submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div id="score" class="col-4 hide">
+                <div class="card text-center" style="width: 24rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Score Board</h5>
+                        <p class="card-text">User: <span id="username">Dallas</span></p>
+                        <p class="card-text">Score: <span id="finalscore">35</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
@@ -70,7 +94,9 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="./script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
