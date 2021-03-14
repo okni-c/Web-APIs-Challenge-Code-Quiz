@@ -38,9 +38,10 @@ function runTimer() {
         } else {
             clearInterval(timeInterval)
             timerElement.innerText = 0
+            // show score card and hide all other containers if time runs out
             showScoreCard()
         }
-    }, 100)
+    }, 1000)
 }
 
 function setNextQuestion() {
